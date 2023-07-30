@@ -19,6 +19,8 @@ List<GetPage<dynamic>>? routes=[
   //   MyMiddleWare()
   // ]),
   // GetPage(name: "/", page: ()=>ResultBuyerScreen()),
+
+  ///mmmmmmmmmmmmmmohammmmmmmmmmmmmad
   GetPage(name: "/", page: ()=>Language()),
   GetPage(name: AppRoute.login, page: ()=>Login()),
   GetPage(name: AppRoute.signup, page: ()=>SignUp()),
