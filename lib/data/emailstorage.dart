@@ -14,4 +14,9 @@ class EmailController extends GetxController {
   dynamic getData(String key) {
     return box.read(key);
   }
+
+   // Function to remove data
+  void removeData(String key) {
+    box.remove(key);
+  }
 }

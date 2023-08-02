@@ -75,7 +75,8 @@ class LoginControllerImp extends LoginController {
 
 
  loginWithApi(String email, String password) async {
-final EmailController userController = Get.find<EmailController>();
+  // final EmailController emailController=Get.put(EmailController());
+final EmailController emailController = Get.find<EmailController>();
        var headers = {
   'Content-Type': 'application/json'
 };
@@ -85,13 +86,31 @@ request.body = json.encode({
   "password": "$password"
 });
 request.headers.addAll(headers);
-
+emailController.removeData("username");
+emailController.removeData("response");
+String? x=emailController.getData("username");
+print("removed");
+print(x);
 http.StreamedResponse response = await request.send();
 
 if (response.statusCode == 200) {
-  userController.setData("username", email);
-  print(await response.stream.bytesToString());
-   Get.toNamed(AppRoute.adminhomepage);
+  String msg=await response.stream.bytesToString();
+  if(msg=="logged in successfully"){
+  emailController.setData("username", email);
+  x=emailController.getData("username");
+print("assigned");
+print(x);
+
+  print(msg);
+  // Get.toNamed(AppRoute.adminhomepage);
+  emailController.setData("response", msg);
+  }
+  else if(msg=="wrong username or password"){
+    print(msg);
+  }
+  else{
+    print("unknown 200");
+  }
    
 }
 else {

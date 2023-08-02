@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_course_mytest/controller/auth/login_controller.dart';
 import 'package:flutter_course_mytest/core/constant/color.dart';
+import 'package:flutter_course_mytest/core/constant/routes.dart';
 import 'package:flutter_course_mytest/core/functions/alertexitapp.dart';
 import 'package:flutter_course_mytest/core/localization/changelocal.dart';
 import 'package:flutter_course_mytest/data/emailstorage.dart';
@@ -16,7 +17,8 @@ class Login extends GetView<LocalController> {
   @override
   Widget build(BuildContext context) {
     LoginControllerImp controller =Get.put(LoginControllerImp());
-    EmailController emailController=Get.put(EmailController());
+   EmailController emailController=Get.put(EmailController());
+  //final EmailController emailController = Get.find<EmailController>();
     return Scaffold(
     appBar: AppBar(
       backgroundColor: ColorApp.backgroundcolor,
@@ -72,15 +74,26 @@ class Login extends GetView<LocalController> {
                   padding: EdgeInsets.only(top: 15,left: 10,right: 10),
                   child: Text("Forgot password?",textAlign: TextAlign.end,),
                 ),
-                CustomButtonAuth( text:"Login",onPressed: (){
-                  LoginControllerImp controller = Get.find<LoginControllerImp>();
+                CustomButtonAuth( text:"Login",onPressed: () async {
+              //    LoginControllerImp controller = Get.find<LoginControllerImp>();
 
     // Get the email and password values from the text controllers
                  String email = controller.email.text;
                 String password = controller.password.text;
-                  controller.loginWithApi(email, password);
+                 await controller.loginWithApi(email, password);
                  String? x=emailController.getData("username");
+                 
+                 if("$x"=="tasneem@gmail.com"){
+                 Get.offAllNamed(AppRoute.adminhomepage);}
+                 else if(x=="ajjk@gmail.com"){
+                  Get.offAllNamed(AppRoute.buyerhomepage);
+
+               
+                  print("$x");
+                  print("tasneem@gmail.com");
+                 }
                  print(x);
+                 print("      object");
                 },),
                 SizedBox(height: 10,),
                 CustomTextSignup(text1: "dont have account   ",text2: "Sign Up",

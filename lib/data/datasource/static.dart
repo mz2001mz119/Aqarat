@@ -26,34 +26,34 @@ List<OnBoardingModel> OnBoardingList = [
       image: ImageAsset.OnBoardingImage1)
 ];
 
-List<HouseModel> HousemodelList = [
+// List<HouseModel> HousemodelList = [
 
- HouseModel(
-    title: 'Object 1',
-    body: 'Object 1',
-    images: [
-      'assets/images/home.png',
-      'assets/images/hotel.png',
-           'assets/images/ads.png',
-      'assets/images/land.png',
-    ],
-  ),
-  // HouseModel(
-  //   title: 'Object 2',
-  //   body: 'Object 1',
-  //   images: [
-  //       'assets/images/home.png',
-  //     'assets/images/hotel.png',
-  //          'assets/images/ads.png',
-  //     'assets/images/land.png',
-  //   ],
-  // ),
-  // Add more test data as needed...
-
-
+//  HouseModel(
+//     title: 'Object 1',
+//     body: 'Object 1',
+//     images: [
+//       'assets/images/home.png',
+//       'assets/images/hotel.png',
+//            'assets/images/ads.png',
+//       'assets/images/land.png',
+//     ],
+//   ),
+//   // HouseModel(
+//   //   title: 'Object 2',
+//   //   body: 'Object 1',
+//   //   images: [
+//   //       'assets/images/home.png',
+//   //     'assets/images/hotel.png',
+//   //          'assets/images/ads.png',
+//   //     'assets/images/land.png',
+//   //   ],
+//   // ),
+//   // Add more test data as needed...
 
 
-];
+
+
+// ];
 
 
 

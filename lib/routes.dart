@@ -21,12 +21,14 @@ List<GetPage<dynamic>>? routes=[
   // GetPage(name: "/", page: ()=>ResultBuyerScreen()),
 
   ///
-  GetPage(name: "/", page: ()=>Language()),
+  GetPage(name: "/", page: ()=>BuyerHomePage()),
   GetPage(name: AppRoute.login, page: ()=>Login()),
   GetPage(name: AppRoute.signup, page: ()=>SignUp()),
   GetPage(name: AppRoute.onBoarding, page: ()=>OnBoarding()),
   GetPage(name: AppRoute.adminhomepage, page: ()=>AdminHome()),
   GetPage(name: AppRoute.buyerhomepage, page: ()=>BuyerHomePage()),
+  // GetPage(name: AppRoute.buyercategorypage, page: ()=>ResultBuyerScreen(type: 'House',)),
+  
 
 
 ];

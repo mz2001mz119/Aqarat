@@ -1,11 +1,20 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_course_mytest/core/constant/color.dart';
-
+import 'package:flutter_course_mytest/core/constant/routes.dart';
+import 'package:flutter_course_mytest/data/emailstorage.dart';
+import 'package:flutter_course_mytest/data/model/housesmodel.dart';
+import 'package:flutter_course_mytest/linkapi.dart';
+import 'package:flutter_course_mytest/view/screen/BuyerScreens/resultbuyerscreen.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 class BuyerHomePage extends StatelessWidget {
   const BuyerHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+     EmailController emailController=Get.put(EmailController());
     return Scaffold(
       appBar: AppBar(backgroundColor: ColorApp.orange,),
       drawer: 
@@ -220,7 +229,7 @@ class BuyerHomePage extends StatelessWidget {
                           child: Column(
                             children: [
                               GestureDetector(
-                                onTap: () {
+                                onTap: () async{
                                   // ShopsScreen().setTitle("للأطفال - ".tr + city!);
                                   // ShopsScreen().setType('للأطفال');
                                   // ShopsScreen().setCity(city);
@@ -228,6 +237,8 @@ class BuyerHomePage extends StatelessWidget {
                                   //     context,
                                   //     MaterialPageRoute(
                                   //         builder: (context) => ShopsScreen()));
+                                  List<HouseModel> housess = await fetchHousesApi();
+                                  Get.to(ResultBuyerScreen(type: "House",houses: housess,));
                                 },
                                 child: Material(
                                   elevation: 10,
@@ -585,3 +596,37 @@ class BuyerHomePage extends StatelessWidget {
     );
   }
 }
+
+
+Future<List<HouseModel>> fetchHousesApi() async {
+  var request = http.Request('GET', Uri.parse(Applink.PropertyHouseGetAll));
+
+  http.StreamedResponse response = await request.send();
+
+  if (response.statusCode == 200) {
+    String responseBody = await response.stream.bytesToString();
+    List<dynamic> jsonData = json.decode(responseBody);
+
+    List<HouseModel> houseList = [];
+    for (var data in jsonData) {
+      HouseModel house = HouseModel(
+        id: data['ID'],
+        name: data['Name'],
+        sellingstate: data['SellingState'],
+        rentper: data['RentPer'],
+        area: data['Area'],
+        numofrooms: data['NumOfRooms'],
+        price: data['Price'],
+       // images: List<String>.from(data['images']),
+        information: data['Information'],
+      );
+      houseList.add(house);
+    }
+
+    return houseList;
+  } else {
+    throw Exception('Failed to fetch houses from the API');
+  }
+}
+
+
