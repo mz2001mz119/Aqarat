@@ -6,7 +6,8 @@ import 'package:flutter_course_mytest/core/constant/routes.dart';
 import 'package:flutter_course_mytest/data/emailstorage.dart';
 import 'package:flutter_course_mytest/data/model/housesmodel.dart';
 import 'package:flutter_course_mytest/linkapi.dart';
-import 'package:flutter_course_mytest/view/screen/BuyerScreens/resultbuyerscreen.dart';
+import 'package:flutter_course_mytest/view/screen/BuyerScreens/house/houseresultbuyerscreen.dart';
+import 'package:flutter_course_mytest/view/widget/Buyer/buyerdrawer.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 class BuyerHomePage extends StatelessWidget {
@@ -23,147 +24,147 @@ class BuyerHomePage extends StatelessWidget {
       
       
       
+      BuyerSlider()
       
       
       
       
-      
-      Drawer(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 8, top: 30),
-                child: Image.asset(
-                  'assets/images/App_logo.png',
-                  width: 180,
-                ),
-              ),
+      // Drawer(
+      //   child: SingleChildScrollView(
+      //     scrollDirection: Axis.vertical,
+      //     child: Column(
+      //       children: [
+      //         SizedBox(
+      //           height: 20,
+      //         ),
+      //         Padding(
+      //           padding: const EdgeInsets.only(right: 8, top: 30),
+      //           child: Image.asset(
+      //             'assets/images/App_logo.png',
+      //             width: 180,
+      //           ),
+      //         ),
 
 
-              Container(
-                width: 300,
-                height: 1,
-                color: Colors.grey[300],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 0),
-                child: Text(
-                  "Main Screen",
-                  style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: ColorApp.orange),
-                ),
-              ),
-              ListTile(
-                title: Text("Main Screen"),
-                leading: Icon(Icons.store, color: ColorApp.orange),
-                onTap: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => DoctorMainScreen()));
-                },
-              ),
-              SizedBox(
-                height: 0,
-              ),
-              Container(
-                width: 300,
-                height: 1,
-                color: Colors.grey[300],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 0),
-                child: Text(
-                  "Information",
-                  style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: ColorApp.orange),
-                ),
-              ),
-              ListTile(
-                title: Text("My Account"),
-                leading: Icon(Icons.person, color: ColorApp.orange),
-                onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => DoctorAccountScreen()));
+      //         Container(
+      //           width: 300,
+      //           height: 1,
+      //           color: Colors.grey[300],
+      //         ),
+      //         SizedBox(
+      //           height: 20,
+      //         ),
+      //         Padding(
+      //           padding: const EdgeInsets.only(left: 0),
+      //           child: Text(
+      //             "Main Screen",
+      //             style: TextStyle(
+      //                 fontSize: 17,
+      //                 fontWeight: FontWeight.bold,
+      //                 color: ColorApp.orange),
+      //           ),
+      //         ),
+      //         ListTile(
+      //           title: Text("Main Screen"),
+      //           leading: Icon(Icons.store, color: ColorApp.orange),
+      //           onTap: () {
+      //             // Navigator.push(context,
+      //             //     MaterialPageRoute(builder: (context) => DoctorMainScreen()));
+      //           },
+      //         ),
+      //         SizedBox(
+      //           height: 0,
+      //         ),
+      //         Container(
+      //           width: 300,
+      //           height: 1,
+      //           color: Colors.grey[300],
+      //         ),
+      //         SizedBox(
+      //           height: 20,
+      //         ),
+      //         Padding(
+      //           padding: const EdgeInsets.only(left: 0),
+      //           child: Text(
+      //             "Information",
+      //             style: TextStyle(
+      //                 fontSize: 17,
+      //                 fontWeight: FontWeight.bold,
+      //                 color: ColorApp.orange),
+      //           ),
+      //         ),
+      //         ListTile(
+      //           title: Text("My Account"),
+      //           leading: Icon(Icons.person, color: ColorApp.orange),
+      //           onTap: () {
+      //             // Navigator.push(
+      //             //     context,
+      //             //     MaterialPageRoute(
+      //             //         builder: (context) => DoctorAccountScreen()));
 
-                },
-              ),
-              ListTile(
-                title: Text("My Favorites"),
-                leading: Icon(Icons.health_and_safety, color: ColorApp.orange),
-                onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => AddSatisfactoryScreen()));
-                },
-              ),
-              ListTile(
-                title: Text("Properties"),
-                leading: Icon(Icons.real_estate_agent_outlined,
-                    color: ColorApp.orange),
-                onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => PatientsScreen()));
-                },
-              ),
+      //           },
+      //         ),
+      //         ListTile(
+      //           title: Text("My Favorites"),
+      //           leading: Icon(Icons.health_and_safety, color: ColorApp.orange),
+      //           onTap: () {
+      //             // Navigator.push(
+      //             //     context,
+      //             //     MaterialPageRoute(
+      //             //         builder: (context) => AddSatisfactoryScreen()));
+      //           },
+      //         ),
+      //         ListTile(
+      //           title: Text("Properties"),
+      //           leading: Icon(Icons.real_estate_agent_outlined,
+      //               color: ColorApp.orange),
+      //           onTap: () {
+      //             // Navigator.push(
+      //             //     context,
+      //             //     MaterialPageRoute(
+      //             //         builder: (context) => PatientsScreen()));
+      //           },
+      //         ),
             
 
 
-              SizedBox(
-                height: 0,
-              ),
-              Container(
-                width: 300,
-                height: 1,
-                color: Colors.grey[300],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 0),
-                child: Text(
-                  "Application",
-                  style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: ColorApp.orange),
-                ),
-              ),
+      //         SizedBox(
+      //           height: 0,
+      //         ),
+      //         Container(
+      //           width: 300,
+      //           height: 1,
+      //           color: Colors.grey[300],
+      //         ),
+      //         SizedBox(
+      //           height: 20,
+      //         ),
+      //         Padding(
+      //           padding: const EdgeInsets.only(left: 0),
+      //           child: Text(
+      //             "Application",
+      //             style: TextStyle(
+      //                 fontSize: 17,
+      //                 fontWeight: FontWeight.bold,
+      //                 color: ColorApp.orange),
+      //           ),
+      //         ),
 
 
-              ListTile(
-                title: Text("Sign Out"),
-                leading: Icon(Icons.logout, color: ColorApp.orange),
-                onTap: () async {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => LoginScreen()));
-                },
-              ),
-            ],
-          ),
-        ),
-      )
+      //         ListTile(
+      //           title: Text("Sign Out"),
+      //           leading: Icon(Icons.logout, color: ColorApp.orange),
+      //           onTap: () async {
+      //             // Navigator.push(
+      //             //     context,
+      //             //     MaterialPageRoute(
+      //             //         builder: (context) => LoginScreen()));
+      //           },
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // )
       
       
       
@@ -191,7 +192,7 @@ class BuyerHomePage extends StatelessWidget {
         child: Column(children:[
         
         
-           //تسوق حسب الفئة------------------------------------------------------
+          //----------------------------------------------------
                 Container(
                   margin: EdgeInsets.only(top: 20),
                   child: Row(
@@ -230,13 +231,7 @@ class BuyerHomePage extends StatelessWidget {
                             children: [
                               GestureDetector(
                                 onTap: () async{
-                                  // ShopsScreen().setTitle("للأطفال - ".tr + city!);
-                                  // ShopsScreen().setType('للأطفال');
-                                  // ShopsScreen().setCity(city);
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (context) => ShopsScreen()));
+                                
                                   List<HouseModel> housess = await fetchHousesApi();
                                   Get.to(ResultBuyerScreen(type: "House",houses: housess,));
                                 },
@@ -268,13 +263,7 @@ class BuyerHomePage extends StatelessWidget {
                             children: [
                               GestureDetector(
                                 onTap: () {
-                                  // ShopsScreen().setTitle("للسيدات - ".tr + city!);
-                                  // ShopsScreen().setType('للسيدات');
-                                  // ShopsScreen().setCity(city);
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (context) => ShopsScreen()));
+                            
                                 },
                                 child: Material(
                                   elevation: 10,
@@ -303,13 +292,7 @@ class BuyerHomePage extends StatelessWidget {
                             children: [
                               GestureDetector(
                                 onTap: () {
-                                  // ShopsScreen().setTitle("للرجال - ".tr + city!);
-                                  // ShopsScreen().setType('للرجال');
-                                  // ShopsScreen().setCity(city);
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (context) => ShopsScreen()));
+                             
                                 },
                                 child: Material(
                                   elevation: 10,
@@ -338,13 +321,7 @@ class BuyerHomePage extends StatelessWidget {
                             children: [
                               GestureDetector(
                                 onTap: () {
-                                  // ShopsScreen().setTitle("انارة - ".tr + city!);
-                                  // ShopsScreen().setType('انارة');
-                                  // ShopsScreen().setCity(city);
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (context) => ShopsScreen()));
+           
                                 },
                                 child: Material(
                                   elevation: 10,
@@ -399,17 +376,7 @@ class BuyerHomePage extends StatelessWidget {
                       Spacer(),
                       TextButton(
                         onPressed: () {
-                          // ShopsScreen().setTitle(
-                          //   city,
-                          // );
-                          // ShopsScreen().setCity(
-                          //   city,
-                          // );
-      
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => ShopsScreen()));
+                      
                         },
                         child: Text(
                           "Show all",
@@ -502,17 +469,7 @@ class BuyerHomePage extends StatelessWidget {
                       Spacer(),
                       TextButton(
                         onPressed: () {
-                          // ShopsScreen().setTitle(
-                          //   city,
-                          // );
-                          // ShopsScreen().setCity(
-                          //   city,
-                          // );
-      
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => ShopsScreen()));
+                      
                         },
                         child: Text(
                           "Show all",
@@ -558,7 +515,7 @@ class BuyerHomePage extends StatelessWidget {
                             Text("Drift For Men",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
                             Padding(
                               padding: const EdgeInsets.only(right: 29.0),
-                              child: Text("متجر الكتروني مختص ببيع ارقى واجمل الأحذية الرجالية الاصلية ,تفضل بزيارة متجرنا واحصل على اجمل الاحذية",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 13),),
+                              child: Text("hhhhhhhhe",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 13),),
                             )
                           ],),
                       ),
@@ -569,10 +526,10 @@ class BuyerHomePage extends StatelessWidget {
                           children: [
                             Image.asset('assets/images/App_logo.png',width: 400,height: 200,),
                             SizedBox(height: 10,),
-                            Text("الروافد للادوات المنزلية",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                            Text("jkjjjj",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
                             Padding(
                               padding: const EdgeInsets.only(right: 29.0),
-                              child: Text("متجر الكتروني مختص ببيع جميع الادوات المنزلية,تفضل بزيارة متجرنا لكي تجعل بيتك اجمل",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 13),),
+                              child: Text("information",maxLines: 2,overflow: TextOverflow.ellipsis,style: TextStyle(fontSize: 13),),
                             )
                           ],),
                       ),

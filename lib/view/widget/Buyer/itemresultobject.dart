@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_course_mytest/controller/resultimagecontroller.dart';
 import 'package:flutter_course_mytest/data/datasource/static.dart';
 import 'package:flutter_course_mytest/data/model/housesmodel.dart';
-import 'package:flutter_course_mytest/view/widget/buyerhouseresult.dart';
 import 'package:get/get.dart';
 
 class SearchResultTemplate extends StatelessWidget {

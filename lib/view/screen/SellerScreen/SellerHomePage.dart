@@ -1,175 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_course_mytest/core/constant/color.dart';
-import 'package:flutter_course_mytest/core/constant/routes.dart';
 import 'package:flutter_course_mytest/data/emailstorage.dart';
+import 'package:flutter_course_mytest/view/screen/SellerScreen/SellerProperties.dart';
+import 'package:flutter_course_mytest/view/widget/Seller/SellerDrawer.dart';
 import 'package:get/get.dart';
 import 'package:flutter_course_mytest/core/localization/translation.dart';
 
-class AdminHome extends StatelessWidget {
-  const AdminHome({super.key});
+import '../../../data/model/housesmodel.dart';
+import '../functions/apiservice/housefetchall.dart';
+
+class SellerHomePage extends StatelessWidget {
+  const SellerHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     double screenHight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    EmailController controller1=Get.put (EmailController());
+    EmailController emailController=Get.put(EmailController());
+    CustomTabController mytabcontroller=Get.put(CustomTabController());
+    String x=emailController.getData("username");
     var size=MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: 
+      Text("Aqarat Palestine")
+      ,),
       drawer:  
       
       
       
       
-      
-      
-      
-      
-      
-      Drawer(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 8, top: 30),
-                child: Image.asset(
-                  'assets/images/App_logo.png',
-                  width: 180,
-                ),
-              ),
-
-
-              Container(
-                width: 300,
-                height: 1,
-                color: Colors.grey[300],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 0),
-                child: Text(
-                  "Main Screen",
-                  style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: ColorApp.orange),
-                ),
-              ),
-              ListTile(
-                title: Text("Main Screen"),
-                leading: Icon(Icons.store, color: ColorApp.orange),
-                onTap: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => DoctorMainScreen()));
-                },
-              ),
-              SizedBox(
-                height: 0,
-              ),
-              Container(
-                width: 300,
-                height: 1,
-                color: Colors.grey[300],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 0),
-                child: Text(
-                  "Information",
-                  style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: ColorApp.orange),
-                ),
-              ),
-              ListTile(
-                title: Text("My Account"),
-                leading: Icon(Icons.person, color: ColorApp.orange),
-                onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => DoctorAccountScreen()));
-
-                },
-              ),
-              ListTile(
-                title: Text("Advertisments"),
-                leading: Icon(Icons.add_chart, color: ColorApp.orange),
-                onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => AddSatisfactoryScreen()));
-                },
-              ),
-              ListTile(
-                title: Text("Properties"),
-                leading: Icon(Icons.real_estate_agent_outlined,
-                    color: ColorApp.orange),
-                onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => PatientsScreen()));
-                },
-              ),
-            
-
-
-              SizedBox(
-                height: 0,
-              ),
-              Container(
-                width: 300,
-                height: 1,
-                color: Colors.grey[300],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 0),
-                child: Text(
-                  "Application",
-                  style: TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: ColorApp.orange),
-                ),
-              ),
-
-
-              ListTile(
-                title: Text("Sign Out"),
-                leading: Icon(Icons.logout, color: ColorApp.orange),
-                onTap: () async {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => LoginScreen()));
-                    controller1.removeData("username");
-              String? tempx=controller1.getData("username");
-              print(tempx);
-              Get.offAllNamed(AppRoute.login);
-
-                },
-              ),
-            ],
-          ),
-        ),
-      )
-      
-      
-      
+      SellerDrawer()
       
       
       
@@ -214,17 +74,10 @@ class AdminHome extends StatelessWidget {
                               crossAxisAlignment:
                               CrossAxisAlignment.start,
                               children: <Widget>[
-                                // Text(
-                                //   "الدكتور محيي",
-                                //   style: TextStyle(
-                                //       color: Colors.black,
-                                //       fontWeight: FontWeight.bold,
-                                //       letterSpacing: 2,
-                                //       fontStyle: FontStyle.italic,
-                                //       fontSize: 17.5),
+                           
                                 // ),
                                 Text(
-                                  'Admin',
+                                  '$x',
                                   style: TextStyle(
                                       color: ColorApp.orange,
                                       fontWeight: FontWeight.bold,
@@ -279,11 +132,7 @@ class AdminHome extends StatelessWidget {
                                 GestureDetector(
                                   onTap: () {
                           
-                                    // Navigator.push(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (context) =>//هون بتحط اسم الكلاس للصفحة اللي بدك تنتقل عليها
-                                    //         AccountScreen()));
+                           
                                   },
                                   child: Container(
                                     width:screenWidth / 5,
@@ -308,7 +157,7 @@ class AdminHome extends StatelessWidget {
                                             height: 20,
                                           ),
                                           Text(
-                                            //هون الاسم
+                                         
                                             'My Account',
                                             style: TextStyle(
                                               fontSize: 18,
@@ -322,11 +171,7 @@ class AdminHome extends StatelessWidget {
                                
                                 GestureDetector(
                                   onTap: () {
-                                    // Navigator.push(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (context) =>
-                                    //             AccountScreen()));
+          
                                   },
                                   child: Container(
                                     width:screenWidth / 5,
@@ -360,13 +205,12 @@ class AdminHome extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+
+                                //stop
                                 GestureDetector(
-                                  onTap: () {
-                                    // Navigator.push(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (context) =>
-                                    //             AccountScreen()));
+                                  onTap: () async{
+                                    List<HouseModel>  houses_cont_1= await fetchHousesApi(); 
+                                   Get.to(SellerProperties());
                                   },
                                   child: Container(
                                     width:screenWidth / 5,
@@ -400,6 +244,25 @@ class AdminHome extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
                                 GestureDetector(
                                   onTap: () {
                                     // Navigator.push(

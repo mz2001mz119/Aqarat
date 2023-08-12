@@ -2,17 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_course_mytest/core/constant/color.dart';
 import 'package:flutter_course_mytest/core/constant/routes.dart';
 import 'package:flutter_course_mytest/data/emailstorage.dart';
-import 'package:flutter_course_mytest/view/screen/BuyerScreens/AccountInformationBuyer.dart';
-import 'package:flutter_course_mytest/view/screen/BuyerScreens/buyerhomepage.dart';
+import 'package:flutter_course_mytest/view/screen/SellerScreen/SellerHomePage.dart';
 import 'package:get/get.dart';
 
-class BuyerSlider extends StatelessWidget {
-  const BuyerSlider({super.key});
+class SellerDrawer extends StatelessWidget {
+  const SellerDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
+
     EmailController controller1=Get.find<EmailController>();
     return 
+    
+    
+    
+    
       
       Drawer(
         child: SingleChildScrollView(
@@ -53,7 +57,9 @@ class BuyerSlider extends StatelessWidget {
                 title: Text("Main Screen"),
                 leading: Icon(Icons.store, color: ColorApp.orange),
                 onTap: () {
-                Get.offAll(BuyerHomePage());
+                  Get.offAll(SellerHomePage());
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => DoctorMainScreen()));
                 },
               ),
               SizedBox(
@@ -81,23 +87,32 @@ class BuyerSlider extends StatelessWidget {
                 title: Text("My Account"),
                 leading: Icon(Icons.person, color: ColorApp.orange),
                 onTap: () {
-           Get.to(AccountInformationBuyer());
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => DoctorAccountScreen()));
 
                 },
               ),
               ListTile(
-                title: Text("My Favorites"),
-                leading: Icon(Icons.health_and_safety, color: ColorApp.orange),
+                title: Text("Advertisments"),
+                leading: Icon(Icons.add_chart, color: ColorApp.orange),
                 onTap: () {
-           
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => AddSatisfactoryScreen()));
                 },
               ),
               ListTile(
-                title: Text("Properties"),
+                title: Text("My Properties"),
                 leading: Icon(Icons.real_estate_agent_outlined,
                     color: ColorApp.orange),
                 onTap: () {
-        
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => PatientsScreen()));
                 },
               ),
             
@@ -130,10 +145,26 @@ class BuyerSlider extends StatelessWidget {
                 title: Text("Sign Out"),
                 leading: Icon(Icons.logout, color: ColorApp.orange),
                 onTap: () async {
-              controller1.removeData("username");
+
+
+
+
+                    controller1.removeData("username");
               String? tempx=controller1.getData("username");
               print(tempx);
               Get.offAllNamed(AppRoute.login);
+
+
+
+
+
+
+
+
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => LoginScreen()));
                 },
               ),
             ],
@@ -142,6 +173,18 @@ class BuyerSlider extends StatelessWidget {
       )
       
       
-      ;
+      
+      
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    ;
   }
 }

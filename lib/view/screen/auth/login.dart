@@ -5,6 +5,8 @@ import 'package:flutter_course_mytest/core/constant/routes.dart';
 import 'package:flutter_course_mytest/core/functions/alertexitapp.dart';
 import 'package:flutter_course_mytest/core/localization/changelocal.dart';
 import 'package:flutter_course_mytest/data/emailstorage.dart';
+import 'package:flutter_course_mytest/view/screen/SellerScreen/SellerHomePage.dart';
+import 'package:flutter_course_mytest/view/screen/auth/signup.dart';
 import 'package:flutter_course_mytest/view/widget/login/customformfieldauth.dart';
 import 'package:flutter_course_mytest/view/widget/login/cutombuttonauth.dart';
 import 'package:flutter_course_mytest/view/widget/login/logoauth.dart';
@@ -92,6 +94,9 @@ class Login extends GetView<LocalController> {
                   print("$x");
                   print("tasneem@gmail.com");
                  }
+                 else if(x=="asd@gmail.com"){
+                  Get.offAll(SellerHomePage());
+                 }
                  print(x);
                  print("      object");
                 },),
@@ -100,7 +105,7 @@ class Login extends GetView<LocalController> {
                 onTap:
                 ()
                 {
-                   controller.gotoSignup()();
+                   Get.to(SignUp());
                 }
                 ),
           ],
